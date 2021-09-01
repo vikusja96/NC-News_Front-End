@@ -1,3 +1,5 @@
+import axios from "axios";
+
 export const getArticles = () => {
   return fetch("https://vk-nc-news-server.herokuapp.com/api/articles")
     .then((res) => res.json())
@@ -36,4 +38,14 @@ export const getComments = (article_id) => {
   .then((data) => {
     return data.comments
   })
+}
+
+export const postComment = (article_id, user, newComment) => {
+  return axios
+    .post(`https://vk-nc-news-server.herokuapp.com/api/articles/${article_id}/comments`, {
+      username : `${user}`, body: `${newComment}` 
+    })
+    .then(({data}) => {
+      return data
+    })
 }

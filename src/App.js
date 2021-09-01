@@ -46,7 +46,7 @@ function App() {
             </Route>
 
             <Route exact path="/articles/:article_id">
-              <Article/>
+              <Article user={user}/>
             </Route>
 
             <Route exact path="/:topic/articles">

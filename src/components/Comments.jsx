@@ -1,9 +1,10 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { getComments } from "../utils/api";
+import AddComment from "./AddComment";
 import Expandable from "./Expandable";
 
-const Comments = ({ article_id}) => {
+const Comments = ({ article_id, user }) => {
   const [comments, setComments] = useState([]);
   const [isOpen, setIsOpen] = useState(false); 
 
@@ -16,6 +17,7 @@ const Comments = ({ article_id}) => {
   return (
     <section>
       <h2 className="Comments__header">comments</h2>
+      <AddComment setComments={setComments} article_id={article_id} user={user}/>
       <Expandable isOpen={isOpen} setIsOpen={setIsOpen}>
         <ul className="Comments__list"></ul>
         {comments.map(({ comment_id, author, votes, body, created_at }) => {
