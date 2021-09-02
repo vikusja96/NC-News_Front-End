@@ -3,6 +3,7 @@ import { useParams } from "react-router";
 import { Link } from "react-router-dom";
 import { getArticleById } from "../utils/api";
 import Comments from "./Comments";
+import Likes from "./Likes";
 
 const Article = ({user}) => {
   const { article_id } = useParams();
@@ -19,7 +20,7 @@ const Article = ({user}) => {
       <div className="Article__article">
         <h1>{article.title}</h1>
         <p>{article.body}</p>
-        <p>Like: {article.votes}</p>
+        <Likes article_id={article_id} article={article}/>
         <p>comments: {article.comment_count}</p>
         <Link to={`/users/${article.author}/articles`}>
           <p>{article.author}</p>

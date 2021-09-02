@@ -55,3 +55,10 @@ export const postComment = async (article_id, commentToPost) => {
   );
   return data;
 };
+
+export const patchLikes = async (article_id, increment) => {
+  const { data } = await newsApi.patch(`/articles/${article_id}`, {
+    inc_votes: increment,
+  });
+  return data;
+};
