@@ -6,7 +6,7 @@ import { useState } from "react";
 const Nav = ({ articles, user, setUser}) => { 
   const [isOpen, setIsOpen] = useState(false); 
   return (
-    <section>
+    <section className='Nav'>
       <Expandable isOpen={isOpen} setIsOpen={setIsOpen}>
         <TopicsList articles={articles} setIsOpen={setIsOpen}/>
         <UserProfile user={user} setUser={setUser} />

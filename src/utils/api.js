@@ -10,42 +10,48 @@ export const getArticles = () => {
 
 export const getTopics = () => {
   return fetch("https://vk-nc-news-server.herokuapp.com/api/topics")
-  .then ((res) => res.json())
-  .then((data) => {
-    return data.topics
-  })
-}
+    .then((res) => res.json())
+    .then((data) => {
+      return data.topics;
+    });
+};
 
 export const getUsers = () => {
   return fetch("https://vk-nc-news-server.herokuapp.com/api/users")
-  .then((res) => res.json())
-  .then((data) => {
-    return data.users
-  })
-}
+    .then((res) => res.json())
+    .then((data) => {
+      return data.users;
+    });
+};
 
 export const getArticleById = (article_id) => {
-  return fetch(`https://vk-nc-news-server.herokuapp.com/api/articles/${article_id}`)
-  .then((res) => res.json())
-  .then((data) => {
-      return data.article[0]
-  })
-}
+  return fetch(
+    `https://vk-nc-news-server.herokuapp.com/api/articles/${article_id}`
+  )
+    .then((res) => res.json())
+    .then((data) => {
+      return data.article[0];
+    });
+};
 
 export const getComments = (article_id) => {
-  return fetch(`https://vk-nc-news-server.herokuapp.com/api/articles/${article_id}/comments`)
-  .then((res) => res.json())
-  .then((data) => {
-    return data.comments
-  })
-}
+  return fetch(
+    `https://vk-nc-news-server.herokuapp.com/api/articles/${article_id}/comments`
+  )
+    .then((res) => res.json())
+    .then((data) => {
+      return data.comments;
+    });
+};
 
-export const postComment = (article_id, user, newComment) => {
-  return axios
-    .post(`https://vk-nc-news-server.herokuapp.com/api/articles/${article_id}/comments`, {
-      username : `${user}`, body: `${newComment}` 
-    })
-    .then(({data}) => {
-      return data
-    })
-}
+const newsApi = axios.create({
+  baseURL: "https://vk-nc-news-server.herokuapp.com/api",
+});
+
+export const postComment = async (article_id, commentToPost) => {
+  const { data } = await newsApi.post(
+    `/articles/${article_id}/comments`,
+    commentToPost
+  );
+  return data;
+};

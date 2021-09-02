@@ -1,26 +1,30 @@
 import React, { useState } from "react";
 import { postComment } from "../utils/api";
 
-const AddComment = ({ setComments, article_id, user }) => {
+const AddComment = ({ setIsOpen, setComments, article_id }) => {
   const [newComment, setNewComment] = useState("");
 
-  const addComment = () => {
-    postComment(article_id, user, newComment);
-  };
-  
   const handleChange = ({ target: { value } }) => {
     setNewComment(value);
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    setComments((currentComments) => {
-      const newComents = [...currentComments];
-      const addComment = { body: newComment };
-      newComents.push(addComment);
-      return newComents;
+    const commentToPost = {
+      username: "grumpy19",
+      body: newComment,
+    };
+    postComment(article_id, commentToPost).then(({ insertComment }) => {
+      setComments((currentComments) => {
+        return [...currentComments, insertComment[0]];
+      });
+      setNewComment("");
+      setIsOpen(true);
+      window.scrollTo({
+        top: document.body.clientHeight,
+        behavior: "smooth",
+      });
     });
-    setNewComment("");
   };
 
   return (
@@ -31,9 +35,7 @@ const AddComment = ({ setComments, article_id, user }) => {
         value={newComment}
         onChange={handleChange}
       ></input>
-      <button className="Add-comment__button" onClick={addComment}>
-        Add comment
-      </button>
+      <button className="Add-comment__button">Add comment</button>
     </form>
   );
 };

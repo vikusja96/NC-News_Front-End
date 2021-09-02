@@ -15,7 +15,7 @@ const Article = ({user}) => {
   }, [article_id]);
 
   return (
-    <section>
+    <section className='Article'>
       <div className="Article__article">
         <h1>{article.title}</h1>
         <p>{article.body}</p>
