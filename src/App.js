@@ -10,6 +10,7 @@ import ArticlesByTopic from "./components/ArticlesByTopic";
 import ArticlesByUser from "./components/ArticlesByUser";
 import UsersList from "./components/UsersList";
 import Home from "./components/Home";
+import NavWeb from "./components/NavWeb";
 
 
 function App() {
@@ -31,15 +32,14 @@ function App() {
 
   return (
     <BrowserRouter>
-      <Home/>
       <RequireLogin user={user} setUser={setUser}>
         <div className="App">
+          <div className="Header">
+          <Home/>
           <Nav articles={articles} user={user} setUser={setUser}/>
-
+          <NavWeb articles={articles} user={user} setUser={setUser}/> 
+          </div>
           <Switch>
-            <Route exact path="/">
-              <Home articles={articles} />
-            </Route>
 
             <Route exact path="/articles">
               <ArticlesList articles={articles} />

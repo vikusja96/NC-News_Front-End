@@ -8,6 +8,14 @@ export const getArticles = () => {
     });
 };
 
+//export const sortArticles = () => {
+//  return fetch(`https://vk-nc-news-server.herokuapp.com/api/articles?${}`)
+//    .then((res) => res.json())
+//    .then((data) => {
+//      console.log(data.articles)
+//    })
+//}
+
 export const getTopics = () => {
   return fetch("https://vk-nc-news-server.herokuapp.com/api/topics")
     .then((res) => res.json())

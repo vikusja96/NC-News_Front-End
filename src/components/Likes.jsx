@@ -8,21 +8,20 @@ const Likes = ({ article_id, article }) => {
 
   const incLikes = () => {
     setHasError(false);
-    
+
     setLike((currentLikeChange) => {
-        return currentLikeChange + 1;
+      setIsLoding(true);
+      return currentLikeChange + 1;
     });
     setIsLoding(false);
-    
     patchLikes(article_id, 1).catch(() => {
-        setHasError(true);
-        setLike((currentLikeChange) => {
-            return currentLikeChange - 1;
-        });
+      setLike((currentLikeChange) => {
+        return currentLikeChange - 1;
+      });
     });
   };
 
-  if(isLoading) return <p>Loading...</p>
+  if (isLoading) return <p>Loading...</p>;
 
   return (
     <section>

@@ -8,9 +8,9 @@ const ArticlesByTopic = ({articles}) => {
     });
     
     return (
-        <section className="Articles_by_Topic">
+        <section className="Articles_by_Topic Articles ">
             <h1 className="topic">{topic}</h1>
-            <ul className='Articles_by_Topic__list'>
+            <ul className='Articles_by_Topic__list Articles__list'>
                 {specTopicArticles.map(({title, author, article_id}) => {
                     return (
                         <li key={article_id}>

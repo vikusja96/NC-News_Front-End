@@ -18,18 +18,19 @@ const ArticlesByUser = ({ users, articles }) => {
   }
 
   return (
-    <section className="Articles_by_User">
+    <section className="Articles_by_User Articles">
       <div>
-        {" "}
         {users.length !== 0 && (
           <div>
+            <div className='Articles_by_User__user'>
             <img
               src={specUser[0].avatar_url}
               alt={`${specUser[0].name}'s avatar`}
             />
             <h1 className="User">{user}</h1>
             <h2>{specUser[0].name}</h2>
-            <ul className="Articles_by_User__list">
+            </div>
+            <ul className="Articles_by_User__list Articles__list">
               {specUserArticles.map(({ title, article_id }) => {
                 return (
                   <li key={article_id}>
