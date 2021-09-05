@@ -1,14 +1,16 @@
-const Expandable = ({isOpen, setIsOpen, children}) => {
+const Expandable = ({ isOpen, setIsOpen, children }) => {
+  const toggleOpen = () => {
+    setIsOpen((currIsOpen) => !currIsOpen);
+  };
 
-    const toggleOpen = () => {
-        setIsOpen((currIsOpen) => !currIsOpen)
-    }
-    return (
-        <div>
-            <button onClick={toggleOpen}>{isOpen ? '^' : 'v'}</button>
-            {isOpen ? children : null}
-        </div>
-    );
+  return (
+    <div>
+      <button className="Expand__button" onClick={toggleOpen}>
+        {isOpen ? '︽' : '︾' }
+      </button>
+      {isOpen ? children : null}
+    </div>
+  );
 };
 
 export default Expandable;

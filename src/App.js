@@ -11,13 +11,14 @@ import ArticlesByUser from "./components/ArticlesByUser";
 import UsersList from "./components/UsersList";
 import Home from "./components/Home";
 import NavWeb from "./components/NavWeb";
-
+import useWindowSize from "./components/useWindowsSize";
 
 function App() {
   const [user, setUser] = useState({ username: "Guest" });
   const [articles, setArticles] = useState([]);
   const [users, setUsers] = useState([]);
-
+  const { width } = useWindowSize();
+ 
   useEffect(() => {
     getArticles().then((articlesFromApi) => {
       setArticles(articlesFromApi);
@@ -34,19 +35,20 @@ function App() {
     <BrowserRouter>
       <RequireLogin user={user} setUser={setUser}>
         <div className="App">
-          <div className="Header">
-          <Home/>
-          <Nav articles={articles} user={user} setUser={setUser}/>
-          <NavWeb articles={articles} user={user} setUser={setUser}/> 
-          </div>
-          <Switch>
+          <Home />
+          {width < 426 ? (
+            <Nav articles={articles} user={user} setUser={setUser} />
+          ) : (
+            <NavWeb articles={articles} user={user} setUser={setUser} />
+          )}
 
+          <Switch>
             <Route exact path="/articles">
-              <ArticlesList articles={articles} />
+              <ArticlesList articles={articles} setArticles={setArticles} />
             </Route>
 
             <Route exact path="/articles/:article_id">
-              <Article user={user}/>
+              <Article user={user} />
             </Route>
 
             <Route exact path="/:topic/articles">
@@ -54,7 +56,7 @@ function App() {
             </Route>
 
             <Route exact path="/users">
-              <UsersList users={users}/>
+              <UsersList users={users} />
             </Route>
 
             <Route exact path="/users/:user/articles">

@@ -8,15 +8,20 @@ import Likes from "./Likes";
 const Article = ({user}) => {
   const { article_id } = useParams();
   const [article, setArticle] = useState({});
+  const [isLoading, setIsLoding] = useState(true);
+
 
   useEffect(() => {
     getArticleById(article_id).then((articleFromApi) => {
       setArticle(articleFromApi);
+      setIsLoding(false);
     });
   }, [article_id]);
 
+  if (isLoading) return <p>Loading...</p>;
+
   return (
-    <section className='Article'>
+    <section className='Article Articles'>
       <div className="Article__article">
         <h1>{article.title}</h1>
         <p>{article.body}</p>

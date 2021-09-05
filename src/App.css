@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap");
+
 *,
 *::after,
 *::before {
@@ -5,37 +7,45 @@
   padding: 0;
   box-sizing: inherit;
 }
+body {
+  font-family: "Lato", sans-serif;
+}
+
+a,
+li {
+  text-decoration: none;
+  color: black;
+}
+li {
+  list-style: none;
+}
 
 .App {
   display: grid;
   grid-template-columns: 100%;
   grid-template-rows: min-content auto auto;
   grid-template-areas:
-    'Home'
-    'Nav'
-    'Articles';
+    "Home"
+    "Nav"
+    "Articles";
 }
 .Nav-web {
   display: none;
 }
 
-@media only screen and (min-width: 600px) {
-  .Nav {
-    display: none;
-  }
-  .Nav-web {
-    display: flex;
-  }
+@media only screen and (min-width: 426px) {
   .App {
-    grid-template-columns: 25% 75%;
+    display: grid;
+    grid-template-columns: 40% 60%;
     grid-template-rows: min-content auto;
     grid-template-areas:
-      'Home Nav-web'
-      'Articles Articles';
+      "Home Nav-web"
+      "Articles Articles";
   }
-}
-.Nav-web {
-  grid-area: Nav-web;
+  .Nav-web {
+    grid-area: Nav-web;
+    display: flex;
+  }
 }
 
 .Nav-web .Topics__list li {
@@ -44,16 +54,37 @@
   text-transform: uppercase;
 }
 
-.Nav-web .Topics__list li a {
-  text-decoration: none;
-}
-
 .Home {
   grid-area: Home;
 }
 .Nav {
   grid-area: Nav;
 }
+.Nav .Expand__button {
+  position: absolute;
+  top: 16px;
+  right: 20px;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 0 4px;
+  background-color: #054ba6;
+  color: white;
+  border: 1px solid white;
+  border-radius: 4px;
+}
+.UserProfile__button {
+  font-size: 15px;
+  background-color: #054ba6;
+  color: white;
+  border: 1px solid white;
+  border-radius: 4px;
+  padding: 5px 10px;
+}
+.UserProfile__container {
+  padding-left: 15px;
+  margin: 12px 0;
+}
+
 .Articles {
   grid-area: Articles;
 }
@@ -63,52 +94,94 @@
   grid-template-columns: repeat(2, 1fr);
 }
 
-/* .Articles__list { */
-  /* margin: 0 auto; */
-  /* display: grid; */
-  /* grid-template-columns: repeat(1, 1fr); */
-  /* grid-gap: 2rem; */
-/* } */
-/* @media only screen and (min-width: 56.25em) { */
-  /* .Articles__list { */
-    /* grid-template-columns: repeat(2, 1fr); */
-  /* } */
-/* } */
-/* @media only screen and (min-width: 75em) { */
-  /* .Articles__list { */
-    /* grid-template-columns: repeat(4, 1fr); */
-  /* } */
-/* } */
-/* @media only screen and (min-width: 112.5em) { */
-  /* .Articles__list { */
-    /* grid-template-columns: repeat(4, 1fr); */
-  /* } */
-/* } */
-
-
-
-.App {
-  text-align: center;
+.Home h1 {
+  background-color: #054ba6;
+  text-align: left;
+  padding: 15px;
+  font-size: 25px;
+  font-weight: 900;
+  letter-spacing: 1px;
 }
-.Home {
-  border: 3px solid green
+h1 {
+  color: white;
+}
+.Home span {
+  color: #e60404;
 }
 
-.Nav, .Nav-web{
-  border: 3px solid yellow
+.Nav {
+  background-color: #054ba6;
+  color: white;
+  text-align: left;
+  line-height: 2;
 }
+.Nav a {
+  color: white;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.Topics:before,
+.Topics:after {
+  display: block;
+  height: 1px;
+  background-color: white;
+  opacity: 0.5;
+  content: "";
+  width: 90%;
+  margin: 5px auto;
+}
+.Topics__list {
+  padding-left: 15px;
+}
+
+.ArticlesList__list {
+  display: flex;
+  flex-direction: column;
+}
+
+.ArticlesList__card {
+  width: 300px;
+  margin: 10px auto;
+  display: flex;
+}
+.ArticlesList__img {
+  flex: 1;
+}
+.ArticlesList__card img {
+  width: 100%;
+}
+.ArticlesList__info {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  margin-left: 10px;
+}
+.ArticlesList__info a h2 {
+  font-size: 15px;
+  font-weight: 700;
+}
+.ArticlesList__further-info {
+  font-size: 12px;
+  display: flex;
+  margin-top: 10px;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .Articles {
-  border: 3px solid blue
+  border: 3px solid blue;
 }
 .Article {
-  border: 3px solid blue
+  border: 3px solid blue;
 }
 .Comments {
-  border: 3px solid orange
+  border: 3px solid orange;
 }
 .Articles_by_Topic {
-  border: 3px solid blue
+  border: 3px solid blue;
 }
 .Articles_by_User {
-  border: 3px solid blue
+  border: 3px solid blue;
 }
