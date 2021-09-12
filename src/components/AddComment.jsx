@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { postComment } from "../utils/api";
 
-const AddComment = ({ setIsOpen, setComments, article_id }) => {
+const AddComment = ({ setIsOpen, setComments, article_id, user }) => {
   const [newComment, setNewComment] = useState("");
 
   const handleChange = ({ target: { value } }) => {
@@ -11,7 +11,7 @@ const AddComment = ({ setIsOpen, setComments, article_id }) => {
   const handleSubmit = (event) => {
     event.preventDefault();
     const commentToPost = {
-      username: "grumpy19",
+      username: user.username,
       body: newComment,
     };
     postComment(article_id, commentToPost).then(({ insertComment }) => {
@@ -29,12 +29,12 @@ const AddComment = ({ setIsOpen, setComments, article_id }) => {
 
   return (
     <form className="Add-comment" onSubmit={handleSubmit}>
-      <input
+      <textarea
         className="Add-comment__input"
         type="text"
         value={newComment}
         onChange={handleChange}
-      ></input>
+      ></textarea>
       <button className="Add-comment__button">Add comment</button>
     </form>
   );
