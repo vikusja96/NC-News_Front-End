@@ -14,7 +14,7 @@ import NavWeb from "./components/NavWeb";
 import useWindowSize from "./components/useWindowsSize";
 
 function App() {
-  const [user, setUser] = useState({ username: "Guest" });
+  const [user, setUser] = useState();
   const [articles, setArticles] = useState([]);
   const [users, setUsers] = useState([]);
   const { width } = useWindowSize();
@@ -36,7 +36,7 @@ function App() {
       <RequireLogin user={user} setUser={setUser}>
         <div className="App">
           <Home />
-          {width < 426 ? (
+          {width < 600 ? (
             <Nav articles={articles} user={user} setUser={setUser} />
           ) : (
             <NavWeb articles={articles} user={user} setUser={setUser} />
