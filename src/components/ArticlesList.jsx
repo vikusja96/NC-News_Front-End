@@ -24,7 +24,7 @@ const ArticlesList = ({ articles, setArticles }) => {
   return (
     <section className="Articles">
       <label>
-        <select onChange={handleClick}>
+        <select className="ArticlesList__sort-by"onChange={handleClick}>
           <option value="">Sort by ...</option>
           <option value="sort_by=votes" onClick={handleClick}>
             Likes
