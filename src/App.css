@@ -33,21 +33,6 @@ li {
   display: none;
 }
 
-@media only screen and (min-width: 426px) {
-  .App {
-    display: grid;
-    grid-template-columns: 40% 60%;
-    grid-template-rows: min-content auto;
-    grid-template-areas:
-      "Home Nav-web"
-      "Articles Articles";
-  }
-  .Nav-web {
-    grid-area: Nav-web;
-    display: flex;
-  }
-}
-
 .Nav-web .Topics__list li {
   display: inline;
   margin-right: 10px;
@@ -170,18 +155,80 @@ h1 {
   align-items: center;
 }
 
-.Articles {
-  border: 3px solid blue;
+@media only screen and (min-width: 600px) {
+  .App {
+    display: grid;
+    grid-template-columns: 40% 60%;
+    grid-template-rows: min-content auto;
+    grid-template-areas:
+      "Home Nav-web"
+      "Articles Articles";
+  }
+  .Nav-web {
+    grid-area: Nav-web;
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    position: relative;
+    background-color: #054ba6;
+    color: white;
+  }
+  .Nav-web a {
+    color: white;
+  }
+  .Topics__list li a {
+    margin-right: 20px;
+  }
+  .UserProfile__container {
+    padding-right: 20px;
+  }
+  .Topics:before,
+  .Topics:after {
+    display: none;
+  }
+  .ArticlesList__list {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 35px;
+  }
+  .ArticlesList__card {
+    margin-right: 20px;
+    width: 420px;
+  }
+  .ArticlesList__info a h2 {
+    font-size: 20px;
+  }
+  .ArticlesList__further-info {
+    font-size: 16px;
+  }
+  .ArticlesList__sort-by {
+    position: absolute;
+    top: 70px;
+    right: 20px;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 4px;
+    background-color: white;
+    color: #054ba6;
+    border: 1px solid #054ba6;
+    border-radius: 4px;
+  }
 }
-.Article {
-  border: 3px solid blue;
+.Login__home-page h1 {
+  background-color: #054ba6;
+  text-align: left;
+  padding: 15px;
+  font-size: 25px;
+  font-weight: 900;
+  letter-spacing: 1px;
 }
-.Comments {
-  border: 3px solid orange;
-}
-.Articles_by_Topic {
-  border: 3px solid blue;
-}
-.Articles_by_User {
-  border: 3px solid blue;
+.Login__button {
+font-size: 18px;
+font-weight: bold;
+padding: 4px;
+background-color: white;
+color: #054ba6;
+border: 1px solid #054ba6;
+border-radius: 4px;
 }
