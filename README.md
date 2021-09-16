@@ -5,7 +5,7 @@ This is the second part of the full-stack project that was created to demonstrat
 
 The front-end project part was built by using React and CSS. To be able to use the app you should be logged in. You can log out any time by clicking the log out button.  On the home page, the app allows you to see all articles, to order them by comments and likes. On the navigation bar, you can choose a topic that will filter the articles by it. By clicking on an article title it will take you to a new page where you will be able to read an article, check and add a like and a comment. By clicking on an author name it will take you to a page with information about the author and a list of all articles written by the author. App design is responsive and can be used on different screen size devices. 
 
-In the first part of the project, I was building API and the project was hosted with Heroku. You can check all available endpoints on API here: https://vk-nc-news-server.herokuapp.com/api or check the code of back-end part of the project here: https://github.com/vikusja96/be-nc-news.
+In the first part of the project, I was building API and the project was hosted with Heroku. You can check all available endpoints on API here: https://vk-nc-news-server.herokuapp.com/api or check the code of back-end part of the project here: https://github.com/vikusja96/NC-News_Back-End
 
 The final result of the project you can check here: 
 
