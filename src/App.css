@@ -29,21 +29,19 @@ li {
     "Nav"
     "Articles";
 }
-.Nav-web {
-  display: none;
-}
 
-.Nav-web .Topics__list li {
-  display: inline;
-  margin-right: 10px;
-  text-transform: uppercase;
-}
-
-.Home {
-  grid-area: Home;
-}
 .Nav {
+  background-color: #054ba6;
+  color: white;
+  text-align: left;
+  line-height: 2;
   grid-area: Nav;
+}
+.Nav a {
+  color: white;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-weight: 700;
 }
 .Nav .Expand__button {
   position: absolute;
@@ -57,6 +55,11 @@ li {
   border: 1px solid white;
   border-radius: 4px;
 }
+
+.Nav-web {
+  display: none;
+}
+
 .UserProfile__button {
   font-size: 15px;
   background-color: #054ba6;
@@ -70,6 +73,9 @@ li {
   margin: 12px 0;
 }
 
+.Home {
+  grid-area: Home;
+}
 .Home h1 {
   background-color: #054ba6;
   color: white;
@@ -82,18 +88,10 @@ li {
 .Home span {
   color: #e60404;
 }
-
-.Nav {
-  background-color: #054ba6;
-  color: white;
-  text-align: left;
-  line-height: 2;
-}
-.Nav a {
-  color: white;
-  letter-spacing: 1px;
+.Nav-web .Topics__list li {
+  display: inline;
+  margin-right: 10px;
   text-transform: uppercase;
-  font-weight: 700;
 }
 
 .Topics:before,
@@ -109,10 +107,22 @@ li {
 .Topics__list {
   padding-left: 15px;
 }
+
 .Articles {
   grid-area: Articles;
 }
-
+.ArticlesList__sort-by {
+  position: absolute;
+  top: 70px;
+  right: 20px;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 4px;
+  background-color: white;
+  color: #054ba6;
+  border: 1px solid #054ba6;
+  border-radius: 4px;
+}
 .Articles__list {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -120,6 +130,7 @@ li {
 .ArticlesList__list {
   display: flex;
   flex-direction: column;
+  margin-top: 45px;
 }
 .ArticlesList__card {
   width: 300px;
@@ -187,11 +198,11 @@ li {
 }
 .Article__box {
   margin: 30px 0;
-  width: 800px;
+  width: 300px;
 }
 .Article__article h1 {
   margin-bottom: 15px;
-  font-size: 35px;
+  font-size: 25px;
   font-weight: 900;
 }
 .Article__author {
@@ -214,7 +225,7 @@ li {
   text-align: justify;
   line-height: 1.5;
   margin: 20px 0;
-  font-size: 20px;
+  font-size: 15px;
 }
 
 .Article__likes-comments {
@@ -225,14 +236,14 @@ li {
 }
 .Article__likes-comments button {
   margin-right: auto;
-  font-size: 18px;
+  font-size: 15px;
   height: 30px;
   padding: 3px 15px;
   background-color: white;
   color: #054ba6;
   border: 1px solid #054ba6;
   border-radius: 4px;
-  width: 144px;
+  width: 80px;
 }
 .Article__likes {
   padding-right: 30px;
@@ -245,7 +256,7 @@ li {
 .Add-comment__input {
   padding: 10px;
   width: calc(100% - 20px);
-  font-size: 18px;
+  font-size: 14px;
   border: 1px solid #054ba6;
   border-radius: 4px;
   font-family: inherit;
@@ -253,14 +264,15 @@ li {
 }
 .Add-comment__button {
   margin-top: 15px;
+  margin-bottom: 15px;
   font-size: 18px;
   height: 30px;
-  padding: 3px 15px;
-  background-color: white;
-  color: #054ba6;
+  padding: 3px ;
+  background-color: #054ba6;
+  color: white;
   border: 1px solid #054ba6;
   border-radius: 4px;
-  width: 144px;
+  width: 100%;
 }
 .Comments__display {
   display: flex;
@@ -310,8 +322,8 @@ li {
 }
 .Comments__scroll-up {
   position: absolute;
-  right: -120px;
-  bottom: 60px;
+  right: 0;
+  bottom: 20px;
   font-size: 25px;
   font-weight: bold;
   padding: 0 6px;
@@ -393,11 +405,18 @@ li {
   .Nav-web a {
     color: white;
   }
+  .Home h1 {
+    font-size: 22px;
+  }
   .Topics__list li a {
-    margin-right: 20px;
+    margin-right: 10px;
+    font-size: 14px;
+  }
+  .UserProfile__button {
+    font-size: 12px;
   }
   .UserProfile__container {
-    padding-right: 20px;
+    padding-right: 10px;
   }
   .Topics:before,
   .Topics:after {
@@ -419,16 +438,77 @@ li {
   .ArticlesList__further-info {
     font-size: 16px;
   }
-  .ArticlesList__sort-by {
-    position: absolute;
-    top: 70px;
-    right: 20px;
+  .Article__box {
+    margin: 30px 0;
+    width: 550px;
+  }
+  .Article__article p {
+    font-size: 20px;
+  }
+  .Article__likes-comments button {
     font-size: 18px;
-    font-weight: bold;
-    padding: 4px;
+    width: 144px;
+  }
+  .Add-comment__input {
+    font-size: 18px;
+  }
+  .Add-comment__button {
+    margin-top: 15px;
+    font-size: 18px;
+    height: 30px;
+    padding: 3px 15px;
     background-color: white;
     color: #054ba6;
     border: 1px solid #054ba6;
     border-radius: 4px;
+    width: 144px;
+  }
+  
+}
+
+@media only screen and (min-width: 725px) {
+  .Topics__list li a {
+    margin-right: 10px;
+    font-size: 18px;
+  }
+  .UserProfile__container {
+    padding-right: 20px;
+  }
+  .Home h1 {
+    font-size: 25px;
+  }
+  .Article__article h1 {
+    font-size: 30px;
+  }
+  .Comments__scroll-up {
+    position: absolute;
+    right: -70px;
+    bottom: 60px;
+  }
+}
+
+@media only screen and (min-width: 900px) {
+.Article__box {
+  margin: 30px 0;
+  width: 700px;
+}
+.Article__article h1 {
+  font-size: 35px;
+}
+.Comments__scroll-up {
+  position: absolute;
+  right: -70px;
+  bottom: 60px;
+}
+}
+@media only screen and (min-width: 1020px) {
+  .Article__box {
+    margin: 30px 0;
+    width: 800px;
+  }
+  .Comments__scroll-up {
+    position: absolute;
+    right: -100px;
+    bottom: 60px;
   }
 }
