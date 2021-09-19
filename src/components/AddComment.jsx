@@ -34,8 +34,9 @@ const AddComment = ({ setIsOpen, setComments, article_id, user }) => {
         type="text"
         value={newComment}
         onChange={handleChange}
+        placeholder="Write a comment"
       ></textarea>
-      <button className="Add-comment__button">Add comment</button>
+        <button className="Add-comment__button">Add comment</button>
     </form>
   );
 };
