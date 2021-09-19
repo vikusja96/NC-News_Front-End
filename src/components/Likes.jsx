@@ -21,9 +21,12 @@ const Likes = ({ article_id, article }) => {
 
   return (
     <section>
-      <p>Likes: {article.votes + like}</p>
+      <div className="Article__likes-comments">
+      <button onClick={incLikes}> 👍 &nbsp;Like</button>
+      <p className="Article__likes">👍 &nbsp;{article.votes + like}</p>
+      <p>💬 &nbsp; {article.comment_count}</p>
+      </div>
       {hasError && <p>Sorry! Somethig went wrong, try again later...</p>}
-      <button onClick={incLikes}>👍 </button>
     </section>
   );
 };
