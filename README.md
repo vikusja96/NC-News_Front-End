@@ -7,9 +7,7 @@ The front-end project part was built by using React and CSS. To be able to use t
 
 In the first part of the project, I was building API and the project was hosted with Heroku. You can check all available endpoints on API here: https://vk-nc-news-server.herokuapp.com/api or check the code of back-end part of the project here: https://github.com/vikusja96/NC-News_Back-End
 
-The final result of the project you can check here: 
-
-```link to app```
+The final result of the project you can check here: https://the-latest-nc-news.netlify.app/
 
 # If you would like to start app locally:
 
