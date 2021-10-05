@@ -4,6 +4,7 @@ import { getComments } from "../utils/api";
 import AddComment from "./AddComment";
 import Expandable from "./Expandable";
 
+
 const Comments = ({ article_id, user }) => {
   const [comments, setComments] = useState([]);
   const [isOpen, setIsOpen] = useState(false);
@@ -12,14 +13,18 @@ const Comments = ({ article_id, user }) => {
     getComments(article_id).then((commentsfromApi) => {
       setComments(commentsfromApi);
     });
-  }, []);
+  }, [article_id]);
 
-  const handelClick = () => {
+  const handelClickUp = () => {
     window.scrollTo({
       top: 0,
       behavior: "smooth",
     });
   };
+  const fixData = (created_at) => {
+    const fixedData = new Date(created_at);
+    return fixedData.toLocaleDateString();
+  }
 
   return (
     <section className="Comments">
@@ -41,13 +46,13 @@ const Comments = ({ article_id, user }) => {
                 <p className="Comments__list-body">{body}</p>
                 <div className="Comments__list-details">
                 <p className="Comments__list-likes">👍 &nbsp;{votes}</p>
-                <p className="Comments__list-date">{created_at}</p>
+                <p className="Comments__list-date">{fixData(created_at)}</p>
                 </div>
               </li>
             );
           })}
         </ul>
-        <button className="Comments__scroll-up" onClick={handelClick}>
+        <button className="Comments__scroll-up" onClick={handelClickUp}>
         ⬆
         </button>
         </div>
