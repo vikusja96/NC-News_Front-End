@@ -17,7 +17,7 @@ const ArticlesList = ({ articles, setArticles }) => {
       setArticles(articlesFromApi);
       setIsLoding(false);
     });
-  });
+  }, []);
 
   if (isLoading) return <p>Loading...</p>;
 
